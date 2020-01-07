@@ -4,12 +4,12 @@ import java.io.*;
  * WordNet class to implement wordnet of synsets and hypernyms.
  *It consists of two methods parseSysnets and parsehypernets
  * and a constructor - parameterized.
- * Syntax Referenc - @references -  geeksfor geeks
+ * Syntax Reference - @references -  geeksfor geeks
  * @author K. Ranjith Kumar
  */
 
-    public class WordNet { 
-        WordNet(String synsets,String hypernyms) throws IOException{
+     class WordNet2 { 
+        WordNet2(String synsets,String hypernyms) throws IOException{
             parseSynsets(synsets);
             parseHypernyms(hypernyms);
         }
@@ -44,14 +44,16 @@ import java.io.*;
         }
     hreader.close();
     }
-
+  }
     /**
      * main method to create the object and call the functions using the constructor.
      * constructor @param synsets , @hypernyms hypernyms.
      */
+  public class WordNet {
   public static void main(String[] args) throws IOException { 
-    WordNet obj = new WordNet("synsets","hypernyms"); 
+    WordNet2 obj = new WordNet2("synsets","hypernyms"); 
   }
 }
+
 
 
