@@ -17,7 +17,7 @@ import java.io.*;
     /**
      * ParseSynsets method to split the comma separated values to print 
      * the first character in the lines of the synsets file.
-     * @param synsets
+     * @param synsets consists of set of synsets.
      */
     private void parseSynsets(String synsets) throws IOException{
         String strLine = "";
