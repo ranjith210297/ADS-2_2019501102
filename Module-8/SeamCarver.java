@@ -114,7 +114,7 @@ public class SeamCarver {
                 }
                 
 
-                if(i < width() - 1) {
+                if(i < width()-1) {
                     if(energyMatrix[i+1][j+1] > energyMatrix[i][j] + energy(i+1,j+1)) {
                         energyMatrix[i+1][j+1] = energyMatrix[i][j] + energy(i+1,j+1);
                         matrixTo[i+1][j+1] = i;
@@ -144,6 +144,63 @@ public class SeamCarver {
     
     }
 
-     
+     /**
+      * method to find the horizontal seam of the picture.
+      @return returns an array containing pixel energies having low energies horizonatally.
+      */
+    public int[] findHorizontalSeam() {
+        int[][] matrixTo = new int[height()][width()];
+        double[][] energyMatrix = new double[height()][width()];
+        //reset(energyMatrix);
+
+        for(int i = 0; i < energyMatrix.length; i++) {
+            for(int j = 0; j < energyMatrix[i].length; j++) {
+                energyMatrix[i][j] = Double.MAX_VALUE;
+            }
+        }
+
+        for (int row = 0; row < height(); row++) {
+            energyMatrix[row][0] = 1000;
+        }
+        // this is for relaxation.
+        for (int col = 0; col < width() - 1; col++) {
+            for (int row = 0; row < height(); row++) {
+                //relaxH(row, col, matrixTo, energyMatrix);
+                int nextcol = col + 1;
+                for (int i = -1; i <= 1; i++) {
+                    int nextrow = row + i;
+                    if (nextrow < 0 || nextrow >= height()) continue;
+                    if(i == 0) {
+                        if(energyMatrix[nextrow][nextcol] >= energyMatrix[row][col]  + energy(nextcol, nextrow)) {
+                            energyMatrix[nextrow][nextcol] = energyMatrix[row][col]  + energy(nextcol, nextrow);
+                            matrixTo[nextrow][nextcol] = i;
+                        }
+                    }
+                    if (energyMatrix[nextrow][nextcol] > energyMatrix[row][col]  + energy(nextcol, nextrow)) {
+                        energyMatrix[nextrow][nextcol] = energyMatrix[row][col]  + energy(nextcol, nextrow);
+                        matrixTo[nextrow][nextcol] = i;
+                    }
+                }
+
+            }
+        }
+
+        double minDist = Double.MAX_VALUE;
+        int minRow = 0;
+        for (int row = 0; row < height(); row++) {
+            if (minDist > energyMatrix[row][width() - 1]) {
+                minDist = energyMatrix[row][width() - 1];
+                minRow = row;
+            }
+        }
+
+        int[] indices = new int[width()];
+        for (int col = width() - 1, row = minRow; col >= 0; col--) {
+            indices[col] = row;
+            row -= matrixTo[row][col];
+        }
+        return indices;
+    }
     
+
 }

@@ -10,9 +10,13 @@ public class ShowEnergy {
         
         StdOut.printf("Displaying energy calculated for each pixel.\n");
         SCUtility.showEnergy(sc);
-        int[] p = sc.findVerticalSeam();
-        System.out.println(p.length);
-        System.out.println(Arrays.toString(p));
+        // int[] p = sc.findVerticalSeam();
+        // System.out.println(p.length);
+        // System.out.println(Arrays.toString(p));
+
+        int[] q = sc.findHorizontalSeam();
+        System.out.println(q.length);
+        System.out.println(Arrays.toString(q));
 
     }
 
