@@ -2,6 +2,12 @@
 // import edu.princeton.cs.algs4.StdOut;
 // import edu.princeton.cs.algs4.StdRandom;
 
+/**
+ * class boggle board to implement the boggle game
+ * @autor k. ranjith kumar
+ * @refernce Bob sedgewick
+ */
+
 public class BoggleBoard {
     // the 16 Boggle dice (1992 version)
     private static final String[] BOGGLE_1992 = {
@@ -52,6 +58,7 @@ public class BoggleBoard {
     private final int n;        // number of columns
     private char[][] board;     // the m-by-n array of characters
 
+
     /**
      * Initializes a random 4-by-4 board, by rolling the Hasbro dice.
      */
@@ -69,6 +76,7 @@ public class BoggleBoard {
         }
     }
     
+
     /**
      * Initializes a board from the given filename.
      * @param filename the name of the file containing the Boggle board
@@ -95,6 +103,7 @@ public class BoggleBoard {
         }
     }
 
+
     /**
      * Initializes a random m-by-n board, according to the frequency
      * of letters in the English language.
@@ -114,6 +123,7 @@ public class BoggleBoard {
             }
         }
     }
+
 
     /**
      * Initializes a board from the given 2d character array,
@@ -136,6 +146,7 @@ public class BoggleBoard {
             }
         }
     }
+
 
     /**
      * Returns the number of rows.
@@ -182,6 +193,9 @@ public class BoggleBoard {
         return sb.toString().trim();
     }
 
+
+
+    
     /**
      * Unit tests the BoggleBoard data type.
      */
