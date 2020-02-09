@@ -1,6 +1,7 @@
 import java.util.Set;
 import java.util.HashSet;
 
+// THIS IS THE COMPLETE PROJECT IMPLEMENTATION.
 
 /**In this project, we implement boggle by handling Qu words with prefix method. prefix : Qu
  * boggle solver class. for implementing backtracking algorithm using hasprefix method suing trieset
