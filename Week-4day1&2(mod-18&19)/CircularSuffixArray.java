@@ -1,5 +1,10 @@
 import java.util.Arrays;
 
+/**
+ * class which implements circular suffix array,which creates an array consisting of sufffixex.
+ * @author k. ranjith kumar
+ * @reference Bobsedgewick
+ */
 public class CircularSuffixArray {
     private class Node implements Comparable<Node> {
         private String k;
@@ -11,6 +16,9 @@ public class CircularSuffixArray {
             val = value;
         }
 
+        /**
+         * method to compare the characters based on their ascii values.
+         */
         public int compareTo(Node that) {
             int len = k.length();
             for (int i = 0; i < len; i++) {
@@ -23,6 +31,10 @@ public class CircularSuffixArray {
             return 0;
         }
         
+        /**
+         * for getting value
+         * @return  int value
+         */
         public int getValue() {
             return val;
         }
@@ -31,6 +43,10 @@ public class CircularSuffixArray {
     private int []indexs;
     private int length;
     
+    /**
+     * method to get the circular array of suffixes fron input.
+     * @param string s
+     */
     public CircularSuffixArray(String s) {
         String []arrays;
         length = s.length();
@@ -48,10 +64,17 @@ public class CircularSuffixArray {
         }
     }
 
+    /**
+     * for finfing length of string.
+     */
     public int length() {
         return length;
     }
 
+
+    /**
+     * for finding index of char .
+     */
     public int index(int i) {
         return indexs[i];
     }
